@@ -49,6 +49,9 @@
                 <div class="header-main__search search">
                     <input class="search-element" type="text" placeholder="поиск..." /><i class="fa fa-search" aria-hidden="true"></i>
                 </div>
+                <a href="search.html" class="search-icon-adaptive">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                </a>
             </div>
         </div>
         <div class="header-main__information">
@@ -1478,7 +1481,7 @@
             </div>
         </div>
         <div class="some-product__info">
-            <div class="some-product__article">Артикул 432432432</div>
+            <div class="some-product__articul">Артикул 432432432</div>
             <div class="some-product__title">Витаминно-минеральный комплекс для женщин 50+ для ежедневного применения</div>
             <div class="some-product__rating">
                 <i>
@@ -1513,29 +1516,57 @@
                     <i class="fa fa-check" aria-hidden="true"></i>
                     <span class="some-product__status-text">доступно к заказу</span>
                     <div class="some-product__characters">
-                        <div class="some-product__row">
-                            <span class="item-name">Срок годности</span>
-                            <span class="item-value">годен до 04.2020</span>
-                        </div>
-                        <div class="some-product__row">
-                            <span class="item-name">Бренд</span>
-                            <span class="item-value">Optimum Nutrition</span>
-                        </div>
-                        <div class="some-product__row">
-                            <span class="item-name">Страна производства</span>
-                            <span class="item-value">США</span>
-                        </div>
-                        <div class="some-product__row">
-                            <span class="item-name">Обьем/вес</span>
-                            <span class="item-value">0,9 кг</span>
-                        </div>
-                        <div class="some-product__row">
-                            <span class="item-name">Форма выпуска</span>
-                            <span class="item-value">порошок</span>
-                        </div>
-                        <div class="some-product__row">
-                            <span class="item-name">Вкус</span>
-                            <span class="item-value">шоколад</span>
+                        <!--<div class="some-product__row">-->
+                            <!--<span class="item-name">Срок годности</span>-->
+                            <!--<span class="item-value">годен до 04.2020</span>-->
+                        <!--</div>-->
+                        <!--<div class="some-product__row">-->
+                            <!--<span class="item-name">Бренд</span>-->
+                            <!--<span class="item-value">Optimum Nutrition</span>-->
+                        <!--</div>-->
+                        <!--<div class="some-product__row">-->
+                            <!--<span class="item-name">Страна производства</span>-->
+                            <!--<span class="item-value">США</span>-->
+                        <!--</div>-->
+                        <!--<div class="some-product__row">-->
+                            <!--<span class="item-name">Обьем/вес</span>-->
+                            <!--<span class="item-value">0,9 кг</span>-->
+                        <!--</div>-->
+                        <!--<div class="some-product__row">-->
+                            <!--<span class="item-name">Форма выпуска</span>-->
+                            <!--<span class="item-value">порошок</span>-->
+                        <!--</div>-->
+                        <!--<div class="some-product__row">-->
+                            <!--<span class="item-name">Вкус</span>-->
+                            <!--<span class="item-value">шоколад</span>-->
+                        <!--</div>-->
+                        <div class="table-responsive">
+                            <table class="table">
+                                <tr>
+                                    <td>Срок годности</td>
+                                    <td>годен до 04.2020</td>
+                                </tr>
+                                <tr>
+                                    <td>Бренд</td>
+                                    <td>Optimum Nutrition</td>
+                                </tr>
+                                <tr>
+                                    <td>Страна производства</td>
+                                    <td>США</td>
+                                </tr>
+                                <tr>
+                                    <td>Обьем/вес</td>
+                                    <td>порошок</td>
+                                </tr>
+                                <tr>
+                                    <td>Форма выпуска</td>
+                                    <td>порошок</td>
+                                </tr>
+                                <tr>
+                                    <td>Вкус</td>
+                                    <td>шоколад</td>
+                                </tr>
+                            </table>
                         </div>
                     </div>
                     <div class="some-product__tags">
@@ -3173,14 +3204,38 @@
         });
 
         $(".with-product-slider .owl-carousel").owlCarousel({
-            items: 8,
             loop: true,
-            nav: true,
+            nav: false,
+            dots: false,
             smartSpeed: 600,
             navText: [
                 "<i class='fa fa-bug'></i>",
                 "<i class='fa fa-bug'></i>"
-            ]
+            ],
+            items: 8,
+            responsive: {
+                1500: {
+                    items: 6
+                },
+                1200: {
+                    items: 5
+                },
+                1024: {
+                    items: 4
+                },
+                992: {
+                    items: 3
+                },
+                600: {
+                    items: 2
+                },
+                550: {
+                    items: 1
+                },
+                0: {
+                    items: 1
+                }
+            }
         });
 
         var owl1 = $('.with-product-slider .owl-carousel');
@@ -3195,14 +3250,38 @@
     </script>
     <script>
         $(".maybe-like-slider .owl-carousel").owlCarousel({
-            items: 8,
             loop: true,
-            nav: true,
+            nav: false,
+            dots: false,
             smartSpeed: 600,
             navText: [
                 "<i class='fa fa-bug'></i>",
                 "<i class='fa fa-bug'></i>"
-            ]
+            ],
+            items: 8,
+            responsive: {
+                1500: {
+                    items: 6
+                },
+                1200: {
+                    items: 5
+                },
+                1024: {
+                    items: 4
+                },
+                992: {
+                    items: 3
+                },
+                600: {
+                    items: 2
+                },
+                550: {
+                    items: 1
+                },
+                0: {
+                    items: 1
+                }
+            }
         });
 
         var owl2 = $('.maybe-like-slider .owl-carousel');
@@ -3217,7 +3296,6 @@
     </script>
     <script>
         $(".product-bought .owl-carousel").owlCarousel({
-            items: 3,
             loop: false,
             dots: false,
             nav: false,
@@ -3225,7 +3303,28 @@
             navText: [
                 "<i class=\"fa fa-long-arrow-left\" aria-hidden=\"true\"></i>",
                 "<i class=\"fa fa-long-arrow-right\" aria-hidden=\"true\"></i>"
-            ]
+            ],
+            items: 3,
+            responsive: {
+                550: {
+                    items: 2
+                },
+                425: {
+                    items: 1
+                },
+                375: {
+                    items: 1
+                },
+                360: {
+                    items: 1
+                },
+                325: {
+                    items: 1
+                },
+                320: {
+                    items: 1
+                }
+            }
         });
 
         var owlProduct = $('.product-bought .owl-carousel');
@@ -3279,6 +3378,37 @@
         $('.interested-good .slider-arrow__right').click(function() {
             owlinterested.trigger('next.owl.carousel');
         });
+
+        //menu
+        let burger = document.querySelector('.burger');
+        let menu = document.querySelectorAll('.adaptive-menu__item');
+
+        burger.addEventListener('click', () => {
+            if (burger.classList.contains('open')) {
+                burger.classList.remove('open');
+                burger.nextElementSibling.classList.remove('adaptive-menu__open');
+                burger.firstElementChild.classList.remove('fa-close');
+                burger.firstElementChild.classList.add('fa-bars');
+                document.body.style.overflowY = 'scroll';
+            } else {
+                burger.classList.add('open');
+                burger.nextElementSibling.classList.add('adaptive-menu__open');
+                burger.firstElementChild.classList.add('fa-close');
+                burger.firstElementChild.classList.remove('fa-bars');
+                document.body.style.overflowY = 'hidden';
+            }
+        });
+        for (let i = 0; i < menu.length; i++) {
+            menu[i].addEventListener('click', () => {
+                if (menu[i].classList.contains('sub__open')) {
+                    menu[i].classList.remove('sub__open');
+                } else {
+                    menu[i].classList.add('sub__open');
+                }
+            });
+        }
     </script>
+
+
 <script type="text/javascript" src="vendors.js"></script><script type="text/javascript" src="application.js"></script></body>
 </html>
