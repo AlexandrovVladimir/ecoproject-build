@@ -320,14 +320,38 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.3/owl.carousel.js"></script>
 <script>
     $(".receipts .owl-carousel").owlCarousel({
-        items: 5,
         loop: true,
-        nav: true,
+        nav: false,
+        dots: false,
         smartSpeed: 600,
         navText: [
             "<i class='fa fa-bug'></i>",
             "<i class='fa fa-bug'></i>"
-        ]
+        ],
+        items: 5,
+        responsive: {
+            1300: {
+                items: 5
+            },
+            1200: {
+                items: 4
+            },
+            992: {
+                items: 3
+            },
+            768: {
+                items: 2
+            },
+            600: {
+                items: 2
+            },
+            550: {
+                items: 1
+            },
+            0: {
+                items: 1
+            }
+        }
     });
 
     var owl3 = $('.receipts .owl-carousel');
