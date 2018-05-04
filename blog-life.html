@@ -26,6 +26,16 @@
                 <li class="blog-header__item"><a href="#" class="blog-header__link">в интернет магазин</a></li>
             </ul>
         </div>
+        <div class="blog-adaptive">
+            <ul class="blog-adaptive__list">
+                <li class="blog-adaptive__item"><a href="blog-life.html" class="blog-adaptive__link">Жизнь</a></li>
+                <li class="blog-adaptive__item"><a href="blog-eat.html" class="blog-adaptive__link">Питание</a></li>
+                <li class="blog-adaptive__item"><a href="blog-sport.html" class="blog-adaptive__link">Спорт</a></li>
+                <li class="blog-adaptive__item"><a href="blog-health.html" class="blog-adaptive__link">Здоровье</a></li>
+                <li class="blog-adaptive__item"><a href="blog-receipt.html" class="blog-adaptive__link">Рецепты</a></li>
+            </ul>
+            <div class="blog-adaptive__icon">X</div>
+        </div>
         <div class="blog-header__search"><a href="blog-search.html"><i class="fa fa-search" aria-hidden="true"></i></a></div>
     </div>
 </div>
@@ -256,14 +266,38 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.3/owl.carousel.js"></script>
 <script>
     $(".receipts .owl-carousel").owlCarousel({
-        items: 5,
         loop: true,
-        nav: true,
+        nav: false,
+        dots: false,
         smartSpeed: 600,
         navText: [
             "<i class='fa fa-bug'></i>",
             "<i class='fa fa-bug'></i>"
-        ]
+        ],
+        items: 5,
+        responsive: {
+            1300: {
+                items: 5
+            },
+            1200: {
+                items: 4
+            },
+            992: {
+                items: 3
+            },
+            768: {
+                items: 2
+            },
+            600: {
+                items: 2
+            },
+            550: {
+                items: 1
+            },
+            0: {
+                items: 1
+            }
+        }
     });
 
     var owlLife = $('.receipts .owl-carousel');
@@ -273,6 +307,14 @@
     });
     $('.receipts .slider-arrow__right').click(function() {
         owlLife.trigger('next.owl.carousel');
+    });
+
+    //blog-adaptive
+    const blogIcon = document.querySelector('.blog-adaptive__icon');
+    blogIcon.addEventListener('click', () => {
+        console.log(blogIcon.parentNode.querySelectorAll('.blog-adaptive__item'));
+
+        blogIcon.parentNode.style.display = 'none';
     });
 </script>
 <script type="text/javascript" src="vendors.js"></script><script type="text/javascript" src="application.js"></script></body>

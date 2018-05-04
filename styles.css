@@ -1434,31 +1434,28 @@
     text-align: left;
     color: #000000;
     border-bottom: 1px solid #6004ba;
-    max-width: 1015px;
     padding-bottom: 15px; }
   .account__info .table-responsive {
     margin-top: 15px; }
-  .account__info .table {
-    max-width: 80%; }
-    .account__info .table td {
-      border-top: none;
-      padding-left: 0;
-      font-size: 16px;
-      font-weight: normal;
-      font-style: normal;
-      font-stretch: normal;
-      letter-spacing: normal;
-      text-align: left;
-      color: #000000; }
-    .account__info .table td.status {
-      font-size: 22px;
-      font-weight: 900;
-      font-style: normal;
-      font-stretch: normal;
-      letter-spacing: -1px;
-      text-align: left; }
-    .account__info .table td.gold {
-      color: #e0c300 !important; }
+  .account__info .table td {
+    border-top: none;
+    padding-left: 0;
+    font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: #000000; }
+  .account__info .table td.status {
+    font-size: 22px;
+    font-weight: 900;
+    font-style: normal;
+    font-stretch: normal;
+    letter-spacing: -1px;
+    text-align: left; }
+  .account__info .table td.gold {
+    color: #e0c300 !important; }
   .account__link a {
     color: #6004ba;
     font-size: 14px;
@@ -1471,9 +1468,6 @@
     .account__link a:hover, .account__link a:active, .account__link a:focus {
       outline: none;
       color: #6004ba; }
-
-.account-map__info .table-responsive {
-  max-width: 80%; }
 
 .account-map__info .table td {
   width: auto;
@@ -1563,6 +1557,8 @@
   display: flex;
   -ms-flex-pack: justify;
       justify-content: space-between;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
   -ms-flex-align: center;
       align-items: center;
   border-radius: 2px;
@@ -1601,6 +1597,21 @@
   .account-referal-action__copy:active, .account-referal-action__copy:focus {
     outline: none;
     box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.14); }
+
+.account-referal__info .table__title-name {
+  padding-top: 50px;
+  font-size: 22px;
+  font-weight: 900;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.23;
+  letter-spacing: -1px;
+  text-align: left;
+  color: #000000;
+  border-bottom: solid 1px #c0c0c0; }
+
+.account-referal__info .table-second {
+  margin-top: 0; }
 
 .account-subscribe__info .table {
   max-width: 100%; }
@@ -1666,8 +1677,8 @@
 
 .account-subscribe-wrapper {
   display: none;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap; }
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap; }
   .account-subscribe-wrapper__open {
     display: -ms-flexbox;
     display: flex; }
@@ -2115,7 +2126,8 @@
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
     -ms-flex-align: center;
-        align-items: center; }
+        align-items: center;
+    position: relative; }
   .blog-header__logo {
     display: -ms-flexbox;
     display: flex;
@@ -2631,6 +2643,31 @@
     text-align: left;
     color: #000000;
     padding-left: 40px; }
+
+.blog-adaptive {
+  position: absolute;
+  top: 0;
+  left: 25px;
+  transition: all 0.6s ease-in-out;
+  opacity: 0;
+  visibility: hidden;
+  z-index: -1; }
+  .blog-adaptive__link {
+    display: block;
+    font-size: 15px;
+    font-weight: 900;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #ffffff;
+    padding: 0.5rem 0.25rem; }
+  .blog-adaptive__icon {
+    font-size: 0.5rem;
+    position: absolute;
+    color: red;
+    top: 5px;
+    left: 65px; }
 
 .letter-page {
   max-width: 750px;
@@ -4367,6 +4404,10 @@ form.modal-start-screen {
 ::-webkit-scrollbar-thumb:hover {
   background: #6004ba; }
 
+@media screen and (max-width: 1920px) {
+  .full-width-slider .item__title {
+    font-size: 60px; } }
+
 @media screen and (max-width: 1800px) {
   .consulting__url {
     height: 100px; }
@@ -4374,10 +4415,6 @@ form.modal-start-screen {
       background-size: 99%; }
   .consulting__link {
     height: 100px; } }
-
-@media screen and (max-width: 1750px) {
-  .full-width-slider .item__title {
-    font-size: 62px; } }
 
 @media screen and (max-width: 1700px) and (min-width: 1401px) {
   .blog-slider__description, .receipts__description {
@@ -4463,9 +4500,27 @@ form.modal-start-screen {
   .consulting .telegram__link, .consulting .facebook__link, .consulting .chat__link {
     background-color: transparent; }
   .some-product__status {
-    padding-right: 10px; } }
+    padding-right: 10px; }
+  .article-full-width .item__title {
+    font-size: 55px; } }
 
 @media screen and (max-width: 1300px) {
+  .account-subscribe__info .table__product-info p {
+    font-size: 14px; }
+  .account-subscribe__info .table td {
+    font-size: 14px; }
+  .account-subscribe__status .checkbox-wrap {
+    font-size: 14px; }
+  .account-subscribe__repeat-link {
+    width: auto;
+    padding-left: 25px;
+    padding-right: 25px; }
+  .account-subscribe-wrapper {
+    -ms-flex-pack: justify;
+        justify-content: space-between; }
+  .account-subscribe__viewport {
+    -ms-flex: 0 0 70%;
+        flex: 0 0 70%; }
   .some-product-help-block {
     -ms-flex-wrap: wrap-reverse;
         flex-wrap: wrap-reverse; }
@@ -4485,6 +4540,12 @@ form.modal-start-screen {
   .blog-popularity {
     max-width: 100%;
     padding: 10px 25px; }
+  .blog-search__input {
+    max-width: 100%;
+    padding-left: 25px;
+    padding-right: 25px; }
+  .blog-search__icon {
+    right: 25px; }
   .blog-tags {
     max-width: 100%;
     padding-left: 25px;
@@ -4561,6 +4622,12 @@ form.modal-start-screen {
 @media screen and (max-width: 1024px) {
   .blog-header__nav {
     display: none; }
+  .blog-adaptive {
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 1;
+    visibility: visible;
+    top: 95px;
+    z-index: 10; }
   .some-product-thumbnails-slider,
   .some-product__info {
     -ms-flex: 0 0 100%;
@@ -4576,6 +4643,42 @@ form.modal-start-screen {
     max-width: 100%; } }
 
 @media screen and (max-width: 992px) {
+  .account {
+    padding-top: 164px; }
+    .account__page {
+      padding-left: 15px; }
+    .account__title {
+      font-size: 24px;
+      max-width: 100%; }
+    .account__info .table td {
+      font-size: 14px; }
+    .account-list__link {
+      font-size: 14px; }
+  .account-subscribe-wrapper {
+    overflow-x: scroll; }
+  .account-subscribe__viewport {
+    padding-left: 5px; }
+  .account-subscribe__status {
+    padding-left: 5px;
+    padding-right: 5px; }
+    .account-subscribe__status .checkbox-wrap {
+      font-size: 11px; }
+  .account-subscribe__info .table__product-info p {
+    font-size: 12px; }
+  .account-subscribe__order-info {
+    overflow-y: hidden;
+    padding-left: 50px;
+    padding-right: 5px; }
+    .account-subscribe__order-info span {
+      font-size: 11px; }
+  .account-subscribe__lost-review {
+    font-size: 12px; }
+  .account-subscribe__repeat-link {
+    padding-left: 0;
+    padding-right: 0;
+    width: 100%;
+    height: auto;
+    font-size: 12px; }
   .breadcrumbs {
     padding-left: 10px;
     padding-right: 10px;
@@ -4668,7 +4771,16 @@ form.modal-start-screen {
         justify-content: center; }
     .burger i {
       color: #ffffff;
-      font-size: 20px; } }
+      font-size: 20px; }
+  .account__info .table td img {
+    max-width: 25px; }
+  .account__info .table td .card {
+    font-size: 12px;
+    white-space: nowrap; }
+  .account__link {
+    margin-right: 0; }
+    .account__link a {
+      font-size: 12px; } }
 
 @media screen and (max-width: 900px) {
   .some-product__title {
@@ -4712,6 +4824,31 @@ form.modal-start-screen {
       padding: 10px; } }
 
 @media screen and (max-width: 768px) {
+  .article-full-width .item {
+    background-position: center; }
+    .article-full-width .item__title {
+      font-size: 35px; }
+  .account-referal-link {
+    width: 100%;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap; }
+  .account__info .table-responsive {
+    border: none; }
+  .article-post {
+    max-width: 100%;
+    padding: 43px 25px; }
+    .article-post__text {
+      font-size: 16px;
+      line-height: 1.3; }
+      .article-post__text-small {
+        font-size: 14px;
+        line-height: 1.2; }
+    .article-post .blockquote {
+      font-size: 16px;
+      line-height: 1.3;
+      padding: 20px; }
+  .vk__ccomments img {
+    max-width: 80%; }
   .estimate__comments .comment {
     -ms-flex: 0 0 100%;
         flex: 0 0 100%; }
@@ -4756,6 +4893,8 @@ form.modal-start-screen {
       -ms-flex: 0 0 100%;
           flex: 0 0 100%;
       max-width: 100%; }
+  .blog-search__input {
+    padding-top: 25px; }
   .tooltip-inner {
     min-width: 150px; }
   .full-width-slider .owl-theme .owl-dots {
@@ -4819,6 +4958,21 @@ form.modal-start-screen {
     margin-right: 0; } }
 
 @media screen and (max-width: 600px) {
+  .more-articles__item {
+    -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+    max-width: 100%;
+    padding: 0 10px;
+    margin-bottom: 25px; }
+    .more-articles__item img {
+      max-height: 300px; }
+  .more-articles__link {
+    padding-top: 5px;
+    display: block;
+    text-align: center; }
+  .article-post .blockquote {
+    padding: 10px;
+    text-align: left; }
   .some-product-thumbnails-slider .item img {
     max-width: 250px;
     max-height: 400px; }
@@ -4915,6 +5069,8 @@ form.modal-start-screen {
     padding-top: 17%; }
   .blog-popularity__title a {
     font-size: 18px; }
+  .blog-grid__image img {
+    max-height: 200px; }
   .blog-grid__image-small__title {
     padding-top: 5px; }
     .blog-grid__image-small__title a {
@@ -4978,4 +5134,11 @@ form.modal-start-screen {
   .navigation .header-main__telephone {
     font-size: 12px; }
   .navigation .schedule__text {
-    font-size: 10px; } }
+    font-size: 10px; }
+  .blog-header__logo, .blog-header__search {
+    -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+    max-width: 100%;
+    margin-left: 0; }
+  .blog-adaptive {
+    top: 122px; } }

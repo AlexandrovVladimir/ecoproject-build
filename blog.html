@@ -26,6 +26,16 @@
                 <li class="blog-header__item"><a href="#" class="blog-header__link">в интернет магазин</a></li>
             </ul>
         </div>
+        <div class="blog-adaptive">
+            <ul class="blog-adaptive__list">
+                <li class="blog-adaptive__item"><a href="blog-life.html" class="blog-adaptive__link">Жизнь</a></li>
+                <li class="blog-adaptive__item"><a href="blog-eat.html" class="blog-adaptive__link">Питание</a></li>
+                <li class="blog-adaptive__item"><a href="blog-sport.html" class="blog-adaptive__link">Спорт</a></li>
+                <li class="blog-adaptive__item"><a href="blog-health.html" class="blog-adaptive__link">Здоровье</a></li>
+                <li class="blog-adaptive__item"><a href="blog-receipt.html" class="blog-adaptive__link">Рецепты</a></li>
+            </ul>
+            <div class="blog-adaptive__icon">X</div>
+        </div>
         <div class="blog-header__search"><a href="blog-search.html"><i class="fa fa-search" aria-hidden="true"></i></a></div>
     </div>
 </div>
@@ -61,7 +71,7 @@
                         Особых секретов в том, как перейти на правильное питание нет.
                     </p>
                 </div>
-                <h3 class="d_active tab_drawer_heading" rel="tab2">За неделю</h3>
+                <h3 class="tab_drawer_heading" rel="tab2">За неделю</h3>
                 <div id="tab2" class="tab-content">
                     <p class="tab-content__text">
                         Скандинавская или обычная ходьба. Что полезнее для здоровья
@@ -76,7 +86,7 @@
                         Особых секретов в том, как перейти на правильное питание нет.
                     </p>
                 </div>
-                <h3 class="d_active tab_drawer_heading" rel="tab3">За месяц</h3>
+                <h3 class="tab_drawer_heading" rel="tab3">За месяц</h3>
                 <div id="tab3" class="tab-content">
                     <p class="tab-content__text">
                         Скандинавская или обычная ходьба. Что полезнее для здоровья
@@ -401,6 +411,16 @@
        to add border to right side
        of last tab */
     $('ul.tabs li').last().addClass("tab_last");
+</script>
+<script>
+    //blog-adaptive
+    const blogIcon = document.querySelector('.blog-adaptive__icon');
+    blogIcon.addEventListener('click', () => {
+        console.log(blogIcon.parentNode.querySelectorAll('.blog-adaptive__item'));
+
+        blogIcon.parentNode.style.display = 'none';
+    });
+
 </script>
 <script type="text/javascript" src="vendors.js"></script><script type="text/javascript" src="application.js"></script></body>
 </html>

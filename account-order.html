@@ -996,14 +996,15 @@
 
 <script>
     let $rows = document.querySelectorAll('.account-subscribe__row');
-    let row, firstChild, lastChild;
+    let row;
 
     for (let i = 0; i < $rows.length; i++) {
-        $rows[i].addEventListener('click', handler);
+        $rows[i].querySelector('.account-subscribe__icon').addEventListener('click', handler);
+
     }
 
     function handler() {
-        row = this.children; //МАССИВ ВСЕХ ЭЛЕМЕНТОВ, row[row.length-1] <- wrapper
+        row = this.parentNode.children; //МАССИВ ВСЕХ ЭЛЕМЕНТОВ, row[row.length-1] <- wrapper
 
         let wrapper = row[row.length-1];
 
