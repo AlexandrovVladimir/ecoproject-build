@@ -26,6 +26,19 @@
                 <li class="blog-header__item"><a href="#" class="blog-header__link">в интернет магазин</a></li>
             </ul>
         </div>
+        <div class="blog-adaptive">
+            <div class="blog-adaptive__burger">
+                <i class="fa fa-bars" aria-hidden="true"></i>
+            </div>
+            <ul class="blog-adaptive__list">
+                <li class="blog-adaptive__item"><a href="blog-life.html" class="blog-adaptive__link">Жизнь</a></li>
+                <li class="blog-adaptive__item"><a href="blog-eat.html" class="blog-adaptive__link">Питание</a></li>
+                <li class="blog-adaptive__item"><a href="blog-sport.html" class="blog-adaptive__link">Спорт</a></li>
+                <li class="blog-adaptive__item"><a href="blog-health.html" class="blog-adaptive__link">Здоровье</a></li>
+                <li class="blog-adaptive__item"><a href="blog-receipt.html" class="blog-adaptive__link">Рецепты</a></li>
+            </ul>
+            <div class="blog-adaptive__icon">X</div>
+        </div>
         <div class="blog-header__search"><a href="blog-search.html"><i class="fa fa-search" aria-hidden="true"></i></a></div>
     </div>
 </div>
@@ -109,5 +122,25 @@
         © OneTwoFit 2018
     </div>
 </div>
+
+<script>
+    //blog-adaptive menu
+    const burgerAdaptive = document.querySelector('.blog-adaptive__burger');
+
+    burgerAdaptive.addEventListener('click', () => {
+        if (burgerAdaptive.nextElementSibling.classList.contains('open')) {
+            burgerAdaptive.nextElementSibling.classList.remove('open');
+            burgerAdaptive.nextElementSibling.style.background = 'rgba(0,0,0,0.5)';
+            burgerAdaptive.firstElementChild.classList.remove('fa-close');
+            burgerAdaptive.firstElementChild.classList.add('fa-bars');
+            document.body.style.overflowY = 'scroll';
+        } else {
+            burgerAdaptive.nextElementSibling.classList.add('open');
+            burgerAdaptive.firstElementChild.classList.add('fa-close');
+            burgerAdaptive.firstElementChild.classList.remove('fa-bars');
+            document.body.style.overflowY = 'hidden';
+        }
+    });
+</script>
 <script type="text/javascript" src="vendors.js"></script><script type="text/javascript" src="application.js"></script></body>
 </html>
