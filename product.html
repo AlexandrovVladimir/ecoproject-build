@@ -1443,21 +1443,35 @@
     </ul>
     <div class="some-product">
         <div class="some-product-thumbnails-slider">
+            <div class="some-product__actions">
+                <div class="some-product__featured">
+                    <a href="#" class="some-product__actions-link">
+                        <img src="assets/images/love.svg" alt="love">
+                        <span>Избранное</span>
+                    </a>
+                </div>
+                <div class="some-product__compare">
+                    <a href="#" class="some-product__actions-link">
+                        <img src="assets/images/compare.svg" alt="love">
+                        <span>Сравнить</span>
+                    </a>
+                </div>
+            </div>
             <div class="owl-carousel" data-slider-id="1">
                 <div class="some-product__item item">
-                    <img src="assets/images/bitmap.png" alt="slider">
+                    <img src="assets/images/bitmap.png" alt="slider" class="item__image item__image-first">
                 </div>
                 <div class="some-product__item item">
-                    <img src="assets/images/bitmap.png" alt="slider">
+                    <img src="assets/images/bitmap.png" alt="slider" class="item__image">
                 </div>
                 <div class="some-product__item item">
-                    <img src="assets/images/bitmap.png" alt="slider">
+                    <img src="assets/images/bitmap.png" alt="slider" class="item__image">
                 </div>
                 <div class="some-product__item item">
-                    <img src="assets/images/bitmap.png" alt="slider">
+                    <img src="assets/images/bitmap.png" alt="slider" class="item__image">
                 </div>
                 <div class="some-product__item item">
-                    <img src="assets/images/bitmap.png" alt="slider">
+                    <img src="assets/images/bitmap.png" alt="slider" class="item__image">
                 </div>
             </div>
             <div class="owl-thumbs" data-slider-id="1">
@@ -1669,13 +1683,33 @@
                     </div>
                     <div class="some-product__action">=</div>
                     <div class="some-product__prices">
-                        <span class="some-product__price-current">189 грн</span>
+                        <span class="some-product__price-current special__price-current">189 грн</span>
                         <span class="some-product__price-sales">-20%</span>
+                        <a href="#" class="add-to-cart">Добавить в корзину</a>
                     </div>
-                    <a href="#" class="add-to-cart">Добавить в корзину</a>
                 </div>
             </div>
         </div>
+    </div>
+    <div class="some-product__interact interact-cart">
+        <div class="interact-cart__minimize"><i class="fa fa-window-minimize" aria-hidden="true"></i></div>
+        <div class="interact-cart__icon"><i class="fa fa-close"></i></div>
+        <div class="interact-cart__image">
+            <img src="assets/images/car.png" alt="car" class="car">
+        </div>
+        <div class="interact-cart__text text-center">Осталось <span class="interact-cart__balance"></span> грн до бесплатной доставки</div>
+        <div class="interact-cart__progress"></div>
+        <div class="interact-cart__product product">
+            <!--<div class="product__image">-->
+                <!--<img src="../assets/images/bitmap.png" alt="img">-->
+            <!--</div>-->
+            <!--<div class="product__price"></div>-->
+            <!--<div class="product__icon"></div>-->
+        </div>
+    </div>
+    <div class="interact-cart-minimize">
+        <div class="interact-cart__minimize"><i class="fa fa-window-maximize" aria-hidden="true"></i></div>
+        <div class="interact-cart__icon"><i class="fa fa-close"></i></div>
     </div>
     <div class="slider-category with-product-slider">
         <div class="slider-category__title">
@@ -2052,7 +2086,7 @@
     </div>
     <div class="slider-category maybe-like-slider">
         <div class="slider-category__title">
-            <span>Вам может понравится</span>
+            <span>Вам может понравиться</span>
         </div>
         <div class="with-product-slider__arrow slider-arrow">
         <span class="with-product-slider__arrow-left slider-arrow__left">
@@ -3584,6 +3618,125 @@
                     menu[i].classList.add('sub__open');
                 }
             });
+        }
+    </script>
+
+    <script>
+        //interactive cart
+        const addToCart = document.querySelector('.add-to-cart');
+        const interactCart = document.querySelector('.interact-cart');
+        const car = document.querySelector('.interact-cart .car');
+        const closeInteractCart = document.querySelector('.interact-cart__icon');
+        const minimizeInteractCart = document.querySelector('.interact-cart__minimize');
+        const maximizeInteractCart = document.querySelector('.interact-cart-minimize').firstElementChild;
+
+        let freeBalance = 1000;
+
+        init();
+
+        function init() {
+            handleEvents();
+            cartList();
+        }
+
+        function handleEvents() {
+            //добавление в корзину
+            addToCart.addEventListener('click', (e) => {
+                e.preventDefault();
+                interactCart.classList.add('interact-cart__active');
+                addProductToCart();
+            });
+
+            //закрыть корзину
+            closeInteractCart.addEventListener('click', function() {
+                this.parentNode.classList.remove('interact-cart__active');
+            });
+
+            //свернуть
+            minimizeInteractCart.addEventListener('click', function() {
+                this.parentNode.classList.remove('interact-cart__active');
+                this.parentNode.nextElementSibling.classList.add('interact-cart-minimize__active');
+            });
+
+            //развернуть
+            maximizeInteractCart.addEventListener('click', function() {
+                this.parentNode.classList.remove('interact-cart-minimize__active');
+                this.parentNode.previousElementSibling.classList.add('interact-cart__active');
+            });
+
+            //закрыть корзину свернутую
+            document.querySelector('.interact-cart-minimize').lastElementChild.addEventListener('click', function() {
+                this.parentNode.classList.remove('interact-cart-minimize__active');
+            });
+        }
+
+        function addProductToCart() {
+            //элементы корзины, которые копируем
+            const imgProduct = document.querySelector('.item .item__image-first');
+            const imgProduct_add = imgProduct.cloneNode(false);
+            const priceProduct = document.querySelector('.some-product__price-current');
+            const priceProduct_add = priceProduct.cloneNode(true);
+
+            //элементы корзины, в которые копируем
+            const rowProduct = document.createElement('div');
+            rowProduct.classList.add('interact-cart__row');
+            const productImage = document.createElement('div');
+            productImage.classList.add('product__image');
+            productImage.append(imgProduct_add);
+            const productPrice = document.createElement('div');
+            productPrice.classList.add('product__price');
+            productPrice.append(priceProduct_add);
+            const productIcon = document.createElement('span');
+            productIcon.innerText = 'X';
+            productIcon.classList.add('product__icon');
+
+            //добавляем скопированные элементы в строку корзины
+            rowProduct.appendChild(productImage);
+            rowProduct.appendChild(productPrice);
+            rowProduct.append(productIcon);
+
+            //добавляем строку в корзину
+            document.querySelector('.interact-cart__product').append(rowProduct);
+
+            //добавляем остаток до бесплатной доставки
+            freeBalance = freeBalance - parseInt(productPrice.innerText.split(' ')[0]);
+
+            if (freeBalance > 0) {
+                document.querySelector('.interact-cart__balance').innerText = freeBalance;
+                car.style.transition = 'all 0.3s linear';
+                car.style.left = '-70px';
+            } else {
+                document.querySelector('.interact-cart__text').innerText = 'Доставка бесплатно';
+                car.style.transition = 'all 0.5s linear';
+                car.style.left = '0';
+            }
+
+            interactCart.style.height = interactCart.offsetHeight + 42 + "px";
+
+            // setTimeout(progressLine, 1500);
+        }
+
+        function cartList() {
+            const cartList = document.querySelectorAll('.interact-cart__row');
+            let iconCart;
+
+            for (let i = 0; i < cartList.length; i++) {
+                iconCart = cartList[i].lastElementChild;
+                console.log(iconCart);
+            }
+        }
+
+        function freeBalanceCount() {
+
+            return freeBalance;
+        }
+
+
+
+        function progressLine() {
+            const progressLine = document.querySelector('.interact-cart__progress');
+
+            progressLine.style.backgroundColor = '#00cac5';
         }
     </script>
 <script type="text/javascript" src="vendors.js"></script><script type="text/javascript" src="application.js"></script></body>

@@ -53,7 +53,7 @@
         </div>
         <div class="header-main__information">
             <div class="header-main__autorization">
-                <a href="#" class="login">Вход</a>
+                <a href="#" class="login">Войти</a>
                 <!--<span class="vertical">|</span>-->
                 <a href="registration.html" class="registration">Регистрация</a>
             </div>
@@ -302,6 +302,10 @@
         formReg.style.flexDirection = 'row-reverse';
         formReg.lastElementChild.style.flex = ' 0 0 60%';
         formReg.firstElementChild.style.flex = '0 0 40%';
+        formReg.lastElementChild.style.paddingLeft = '0';
+        formReg.lastElementChild.style.borderLeft = 'none';
+        formReg.firstElementChild.style.paddingLeft = '5%';
+        formReg.firstElementChild.style.borderLeft = '1px solid rgba(151,151,151,0.2)';
         formReg.firstElementChild.classList.remove('active');
     });
 
@@ -311,6 +315,10 @@
         formReg.style.flexDirection = 'row';
         formReg.firstElementChild.style.flex = ' 0 0 60%';
         formReg.lastElementChild.style.flex = '0 0 40%';
+        formReg.firstElementChild.style.paddingLeft = '0';
+        formReg.firstElementChild.style.borderLeft = 'none';
+        formReg.lastElementChild.style.paddingLeft = '5%';
+        formReg.lastElementChild.style.borderLeft = '1px solid rgba(151,151,151,0.2)';
         formReg.lastElementChild.classList.remove('active');
     });
 
